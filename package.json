@@ -1,0 +1,28 @@
+{
+    "name": "binint",
+    "version": "0.0.1",
+    "author": "Brassel/Fischer/Huch",
+    "maintainer": "Michael Hanus <mh@informatik.uni-kiel.de>",
+    "synopsis": "Libraries with a binary representation of natural and integers",
+    "category" : [ "Data", "Numeric" ],
+    "description":
+      "This package contains libraries with data types for a binary
+       representation of natural and integers. The advantage of this
+       algebraic definition in contrast to built-in
+       integers is the possibility to use them also for narrowing, i.e.,
+       functional logic programming. Since the operations are also quite
+       efficient compared to a simple Peano representations, this library
+       is also the basis of the implementation of integers in the Curry
+       implementation KiCS2.",
+    "source": {
+      "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/binint.git",
+      "tag": "$version"
+    },
+    "dependencies": {
+    },
+    "exportedModules": [ "BinInt", "ConvertBinInt" ],
+    "testsuite": {
+        "src-dirs": [ "test" ],
+        "modules" : [ "TestBinInt" ]
+    }
+}
