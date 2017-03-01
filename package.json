@@ -7,8 +7,8 @@
     "category" : [ "Data", "Numeric" ],
     "description":
       "This package contains libraries with data types for a binary
-       representation of natural and integers. The advantage of this
-       algebraic definition in contrast to built-in
+       representation of natural and integer numbers.
+       The advantage of this algebraic definition in contrast to built-in
        integers is the possibility to use them also for narrowing, i.e.,
        functional logic programming. Since the operations are also quite
        efficient compared to a simple Peano representations, this library
