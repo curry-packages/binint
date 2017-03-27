@@ -22,7 +22,7 @@
     },
     "exportedModules": [ "BinInt", "ConvertBinInt" ],
     "testsuite": {
-        "src-dirs": [ "test" ],
-        "modules" : [ "TestBinInt" ]
+        "src-dir": "test",
+        "modules": [ "TestBinInt" ]
     }
 }
