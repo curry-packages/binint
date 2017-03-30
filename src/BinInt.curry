@@ -2,7 +2,7 @@
 --- This library contains data types for a binary representation of
 --- natural and integers.
 --- It is based on the paper _Declaring Numbers_ by Brassel/Fischer/Huch
---- [ENTS 216, 2008](http://dx.doi.org/10.1016/j.entcs.2008.06.037).
+--- [ENTCS 216, 2008](http://dx.doi.org/10.1016/j.entcs.2008.06.037).
 ---
 --- The advantage of this algebraic definition in contrast to built-in
 --- integers is the possibility to use them also for narrowing, i.e.,
