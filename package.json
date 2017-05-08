@@ -14,15 +14,19 @@
        efficient compared to a simple Peano representations, this library
        is also the basis of the implementation of integers in the Curry
        implementation KiCS2.",
-    "source": {
-      "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/binint.git",
-      "tag": "$version"
-    },
     "dependencies": {
+    },
+    "compilerCompatibility": {
+        "pakcs": ">= 1.14.0, < 2.0.0",
+        "kics2": ">= 0.5.0, < 2.0.0"
     },
     "exportedModules": [ "BinInt", "ConvertBinInt" ],
     "testsuite": {
         "src-dir": "test",
         "modules": [ "TestBinInt" ]
+    },
+    "source": {
+      "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/binint.git",
+      "tag": "$version"
     }
 }
