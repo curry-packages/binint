@@ -1,5 +1,6 @@
 module TestBinInt where
 
+import Prelude hiding(pred,succ)
 import Test.Prop
 
 import BinInt

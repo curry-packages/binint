@@ -11,7 +11,7 @@
 --- is also the basis of the implementation of integers in the Curry
 --- implementation [KiCS2](http://www-ps.informatik.uni-kiel.de/kics2/).
 
---- @version February 2017
+--- @version May 2017
 -----------------------------------------------------------------------------
 
 module BinInt where
@@ -26,6 +26,7 @@ module BinInt where
 --- @cons O   - multiply with 2
 --- @cons I   - multiply with 2 and add 1
 data Nat = IHi | O Nat | I Nat
+ deriving (Eq,Show)
 
 --- Successor, O(n)
 succ :: Nat -> Nat
@@ -132,6 +133,7 @@ quotRemNat x y
 
 --- Algebraic data type to represent integers.
 data BinInt = Neg Nat | Zero | Pos Nat
+ deriving (Eq,Show)
 
 --- Less-than-or-equal on BinInt
 lteqInteger :: BinInt -> BinInt -> Bool
