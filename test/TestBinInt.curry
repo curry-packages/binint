@@ -1,10 +1,10 @@
 module TestBinInt where
 
-import Prelude hiding(pred,succ)
+import Prelude hiding (pred,succ)
 import Test.Prop
 
-import BinInt
-import ConvertBinInt
+import Data.BinInt
+import Data.BinIntConvert
 
 -----------------------------------------------------------------------------
 -- Test cases to check the binary representation against the built-in integer

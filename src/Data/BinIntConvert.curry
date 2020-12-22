@@ -2,12 +2,12 @@
 --- This library contains operations to convert binary numbers into
 --- standard integer constants.
 ---
---- @version February 2017
+--- @version December 2020
 -----------------------------------------------------------------------------
 
-module ConvertBinInt where
+module Data.BinIntConvert where
 
-import BinInt
+import Data.BinInt
 
 --- Converts a binary natural number into an integer constant.
 fromNat :: Nat -> Int

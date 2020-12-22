@@ -1,6 +1,6 @@
 {
     "name": "binint",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "author": "Brassel/Fischer/Huch",
     "maintainer": "Michael Hanus <mh@informatik.uni-kiel.de>",
     "synopsis": "Libraries with a binary representation of natural and integers",
@@ -14,13 +14,12 @@
        efficient compared to a simple Peano representations, this library
        is also the basis of the implementation of integers in the Curry
        implementation KiCS2.",
+    "license": "BSD-3-Clause",
+    "licenseFile": "LICENSE",
     "dependencies": {
+        "base"   : ">= 3.0.0"
     },
-    "compilerCompatibility": {
-        "pakcs": ">= 2.0.0",
-        "kics2": ">= 2.0.0"
-    },
-    "exportedModules": [ "BinInt", "ConvertBinInt" ],
+    "exportedModules": [ "Data.BinInt", "Data.BinIntConvert" ],
     "testsuite": {
         "src-dir": "test",
         "modules": [ "TestBinInt" ]

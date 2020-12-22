@@ -11,10 +11,10 @@
 --- is also the basis of the implementation of integers in the Curry
 --- implementation [KiCS2](http://www-ps.informatik.uni-kiel.de/kics2/).
 
---- @version May 2017
+--- @version December 2020
 -----------------------------------------------------------------------------
 
-module BinInt where
+module Data.BinInt where
 
 
 -----------------------------------------------------------------------------
