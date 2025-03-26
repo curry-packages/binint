@@ -9,7 +9,7 @@
 --- functional logic programming. Since the operations are also quite
 --- efficient compared to a simple Peano representations, this library
 --- is also the basis of the implementation of integers in the Curry
---- implementation [KiCS2](http://www-ps.informatik.uni-kiel.de/kics2/).
+--- implementation [KiCS2](https://www.curry-lang.org/kics2/).
 
 --- @version December 2020
 -----------------------------------------------------------------------------
