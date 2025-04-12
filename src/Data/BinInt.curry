@@ -16,6 +16,7 @@
 
 module Data.BinInt where
 
+import Test.Prop
 
 -----------------------------------------------------------------------------
 -- Nat
@@ -26,7 +27,16 @@ module Data.BinInt where
 --- @cons O   - multiply with 2
 --- @cons I   - multiply with 2 and add 1
 data Nat = IHi | O Nat | I Nat
- deriving (Eq,Show)
+ deriving Eq
+
+--- We show natural numbers as traditional integers.
+instance Show Nat where
+  show n = show (fromNat n)
+
+--- We read natural numbers as traditional integers.
+instance Read Nat where
+  readsPrec p s = map (\ (n,r) -> (toNat n, r)) (readsPrec p s)
+
 
 --- Successor, O(n)
 succ :: Nat -> Nat
@@ -133,7 +143,16 @@ quotRemNat x y
 
 --- Algebraic data type to represent integers.
 data BinInt = Neg Nat | Zero | Pos Nat
- deriving (Eq,Show)
+ deriving Eq
+
+--- We show binary numbers as traditional integers.
+instance Show BinInt where
+  show n = show (fromBinInt n)
+
+--- We read binary numbers as traditional integers.
+instance Read BinInt where
+  readsPrec p s = map (\ (n,r) -> (toBinInt n, r)) (readsPrec p s)
+
 
 --- Less-than-or-equal on BinInt
 lteqInteger :: BinInt -> BinInt -> Bool
@@ -238,5 +257,60 @@ quotInteger x y = fst (quotRemInteger x y)
 --- Integer remainder, truncated towards zero.
 remInteger :: BinInt -> BinInt -> BinInt
 remInteger x y = snd (quotRemInteger x y)
+
+-----------------------------------------------------------------------------
+-- Conversion operations.
+
+--- Converts a binary natural number into an integer constant.
+fromNat :: Nat -> Int
+fromNat IHi = 1
+fromNat (O n) = 2 * fromNat n
+fromNat (I n) = 2 * fromNat n + 1
+
+-- Postcondition: the result of `fromNat` is not negative.
+fromNat'post :: Nat -> Int -> Bool
+fromNat'post _ n = n > 0
+
+--- Transforms a positive standard integer into a natural number.
+toNat :: Int -> Nat
+toNat n | n == 1 = IHi
+        | even n = O (toNat (n `div` 2))
+        | odd  n = I (toNat ((n - 1) `div` 2))
+
+-- Precondition: `toNat` must be called with non-negative numbers
+toNat'pre :: Int -> Bool
+toNat'pre n = n > 0
+
+--- Converts a binary integer into an integer constant.
+fromBinInt :: BinInt -> Int
+fromBinInt (Neg n) = - (fromNat n)
+fromBinInt Zero    = 0
+fromBinInt (Pos n) = fromNat n
+
+--- Transforms a standard integer into a binary integer.
+toBinInt :: Int -> BinInt
+toBinInt n | n == 0 = Zero
+           | n > 0  = Pos (toNat n)
+           | n < 0  = Neg (toNat (0 - n))
+
+-----------------------------------------------------------------------------
+
+--- Binary numbers as a `Num` instance.
+instance Num BinInt where
+  x + y = x +# y
+  x - y = x -# y
+  x * y = x *# y
+
+  negate x = neg x
+
+  abs (Pos x) = Pos x
+  abs Zero    = Zero
+  abs (Neg x) = Pos x
+
+  signum (Pos _) = Pos IHi
+  signum Zero    = Zero
+  signum (Neg _) = Neg IHi
+
+  fromInt x = toBinInt x
 
 -----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
     "name": "binint",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "author": "Brassel/Fischer/Huch",
     "maintainer": "Michael Hanus <mh@informatik.uni-kiel.de>",
     "synopsis": "Libraries with a binary representation of natural and integers",
@@ -19,7 +19,7 @@
     "dependencies": {
         "base"   : ">= 3.0.0"
     },
-    "exportedModules": [ "Data.BinInt", "Data.BinIntConvert" ],
+    "exportedModules": [ "Data.BinInt" ],
     "testsuite": {
         "src-dir": "test",
         "modules": [ "TestBinInt" ]

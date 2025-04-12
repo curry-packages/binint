@@ -4,7 +4,30 @@ import Prelude hiding (pred,succ)
 import Test.Prop
 
 import Data.BinInt
-import Data.BinIntConvert
+
+-----------------------------------------------------------------------------
+-- Test cases to check the transformations of representation.
+-----------------------------------------------------------------------------
+
+-- Property: transforming positive integers into natural numbers and back
+-- is the identity.
+toFromNat :: Int -> Prop
+toFromNat n = n>0 ==> fromNat (toNat n) -=- n
+
+-- Property: transforming natural numbers into integers and back
+-- is the identity.
+fromToNat :: Nat -> Prop
+fromToNat n = toNat (fromNat n) -=- n
+
+-- Property: transforming integers into binary numbers and back
+-- is the identity.
+toFromBinInt :: Int -> Prop
+toFromBinInt n = fromBinInt (toBinInt n) -=- n
+
+-- Property: transforming binary numbers into integers and back
+-- is the identity
+fromToBinInt :: BinInt -> Prop
+fromToBinInt n = toBinInt (fromBinInt n) -=- n
 
 -----------------------------------------------------------------------------
 -- Test cases to check the binary representation against the built-in integer
@@ -99,3 +122,15 @@ test_rem x y
   = y /= Zero ==>
     fromBinInt (remInteger x y) -=- rem (fromBinInt x) (fromBinInt y)
 
+-----------------------------------------------------------------------------
+-- Test cases for narrowing on binary numbers.
+-----------------------------------------------------------------------------
+
+solveAddFour :: (BinInt,BinInt)
+solveAddFour = Pos x + Pos y =:= 4 &> (Pos x,Pos y)
+ where x,y free
+
+testSolveAddFour :: Prop
+testSolveAddFour = solveAddFour <~> ( (1,3) ? (2,2) ? (3,1))
+
+-----------------------------------------------------------------------------
