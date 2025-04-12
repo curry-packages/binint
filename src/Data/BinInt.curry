@@ -11,7 +11,7 @@
 --- is also the basis of the implementation of integers in the Curry
 --- implementation [KiCS2](https://www.curry-lang.org/kics2/).
 
---- @version December 2020
+--- @version April 2025
 -----------------------------------------------------------------------------
 
 module Data.BinInt where
